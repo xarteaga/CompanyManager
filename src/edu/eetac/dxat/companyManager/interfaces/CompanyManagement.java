@@ -12,8 +12,8 @@ public interface CompanyManagement {
 	public void delCompany(String idCompany) throws Exception;
 
 	/* ADD/DELETE Employees */
-	public void addEmployee(String idEmployee, String name, String type,
-			String idParent) throws Exception;
+	public void addEmployee(String idCompany, String idEmployee, String name,
+			String type) throws Exception;
 
 	public void delEmployee(String idEmployee);
 

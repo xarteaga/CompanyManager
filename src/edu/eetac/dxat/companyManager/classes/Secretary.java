@@ -1,9 +1,14 @@
 package edu.eetac.dxat.companyManager.classes;
 
-public class Secretary {
+public class Secretary extends Employee {
 
-	public Secretary() {
-		// TODO Auto-generated constructor stub
+	public Secretary(String id) {
+		super(id);
+	}
+
+	@Override
+	public String toString() {
+		return "Secretary [id=" + id + "]";
 	}
 
 }
