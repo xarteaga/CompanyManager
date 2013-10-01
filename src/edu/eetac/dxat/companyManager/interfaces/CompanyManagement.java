@@ -13,7 +13,7 @@ public interface CompanyManagement {
 
 	/* ADD/DELETE Employees */
 	public void addEmployee(String idCompany, String idDirector,
-			String idEmployee, String type) throws Exception;
+			Employee employee) throws Exception;
 
 	public void delEmployee(String idCompany, String idEmployee)
 			throws Exception;

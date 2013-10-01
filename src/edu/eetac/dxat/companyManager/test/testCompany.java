@@ -2,9 +2,11 @@ package edu.eetac.dxat.companyManager.test;
 
 import java.util.ArrayList;
 
+import edu.eetac.dxat.companyManager.classes.Comercial;
 import edu.eetac.dxat.companyManager.classes.Company;
 import edu.eetac.dxat.companyManager.classes.CompanyManager;
-import edu.eetac.dxat.companyManager.classes.Employee;
+import edu.eetac.dxat.companyManager.classes.Director;
+import edu.eetac.dxat.companyManager.classes.Secretary;
 
 public class testCompany {
 
@@ -15,24 +17,25 @@ public class testCompany {
 		
 		try {
 			myManager.addCompany("myCompany");
-			myManager.addCompany("EADS");
-			myManager.addCompany("PepeGoterasHotilio");
+			/*myManager.addCompany("PepeGoterasHotilio");
 			myManager.addCompany("PollosHermanos");
 			myManager.addCompany("EspañaEsLaMejor");
 			myManager.addCompany("EstaEslaCausaDe");
 			myManager.addCompany("HoyMeHanPreguntadoPorTi");
-			myManager.addCompany("MañanaNoEsHoy");
+			myManager.addCompany("MañanaNoEsHoy");*/
 		} catch (Exception e) {
 			System.out.println(e);
 			return;
 		}
 
 		try {
-			myManager.addEmployee("myCompany", null, "Jesus", Employee.typeDirector);
-			myManager.addEmployee("myCompany", null, "Xavier", Employee.typeDirector);
-			myManager.addEmployee("myCompany", "Jesus", "Gerard", Employee.typeComercial);
-			myManager.addEmployee("myCompany", "Xavier", "Alex", Employee.typeSecretary);
-			myManager.delEmployee("myCompany", "Toni");
+			myManager.addEmployee("myCompany", "Company", new Director("Jesus"));
+			myManager.addEmployee("myCompany", "Company", new Director("Xavier"));
+			myManager.addEmployee("myCompany", "Xavier", new Director("Marco"));
+			myManager.addEmployee("myCompany", "Jesus", new Comercial("Gerard"));
+			myManager.addEmployee("myCompany", "Marco", new Secretary("Alex"));
+			myManager.addEmployee("myCompany", "Xavier", new Secretary("Cristian"));
+			//myManager.delEmployee("myCompany", "Toni");
 		} catch (Exception e) {
 			System.out.println(e);
 		}

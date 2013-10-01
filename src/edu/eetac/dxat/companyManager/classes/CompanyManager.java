@@ -1,7 +1,6 @@
 package edu.eetac.dxat.companyManager.classes;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
@@ -36,15 +35,14 @@ public class CompanyManager implements CompanyManagement {
 	}
 
 	@Override
-	public void addEmployee(String idCompany, String idDirector, String idEmployee,
-			String type) throws Exception {
+	public void addEmployee(String idCompany, String idDirector, Employee employee) throws Exception {
 		
 		if (!companies.containsKey(idCompany)){
 			throw new Exception("Company does not exist");
 		}
 		
 		Company c = companies.get(idCompany);
-		c.addEmployee(idDirector, idEmployee, type);
+		c.addEmployee(idDirector, employee);
 		
 	}
 

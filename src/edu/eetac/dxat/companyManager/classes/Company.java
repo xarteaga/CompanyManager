@@ -21,27 +21,32 @@ public class Company implements Comparable <Company> {
 		for (Director d : employees) {
 			if (d.getId() == idEmployee) {
 				return true;
+			} else if (d.existEmployee(idEmployee)){
+				return true;
 			}
 		}
 		return false;
 	}
 
-	public void addEmployee(String idDirector, String idEmployee, String type)
+	public void addEmployee(String idDirector, Employee employee)
 			throws Exception {
 
-		if (this.existEmployee(idEmployee)) {
+		if (this.existEmployee(employee.getId())) {
 			throw new Exception("Employee has beeen already added");
 		}
 
-		if (type == "Director") {
-			employees.add(new Director(idEmployee));
+		if (idDirector == "Company") {
+			employees.add((Director)employee);
 		} else {
 			if (!this.existEmployee(idDirector)) {
 				throw new Exception("Director does not exist");
 			}
 			for (Director d : employees) {
 				if (d.getId() == idDirector) {
-					d.addEmployee(idEmployee, type);
+					d.addEmployee(employee);
+					return;
+				} else if (d.existEmployee(idDirector)){
+					d.addEmployee(idDirector, employee);
 					return;
 				}
 			}
@@ -71,6 +76,17 @@ public class Company implements Comparable <Company> {
 	public int compareTo (Company c){
 		String str = this.getId().toLowerCase();
 		return str.compareTo(c.getId().toLowerCase());
+	}
+	
+	public double getEarns (){
+		double sum = 0.0;
+		
+		for(Director d:employees){
+			sum += d.getSalary();
+			sum += d.getSubsEarns();
+		}
+		
+		return sum;
 	}
 	
 }
