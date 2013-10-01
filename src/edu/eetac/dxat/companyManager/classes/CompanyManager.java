@@ -1,5 +1,8 @@
 package edu.eetac.dxat.companyManager.classes;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 
@@ -46,15 +49,16 @@ public class CompanyManager implements CompanyManagement {
 	}
 
 	@Override
-	public void delEmployee(String idEmployee) {
-		// TODO Auto-generated method stub
-		
+	public void delEmployee(String idCompany, String idEmployee) throws Exception {
+		companies.get(idCompany).delEmployee(idEmployee);
 	}
 
 	@Override
 	public List<Company> listCompaniesById() {
-		// TODO Auto-generated method stub
-		return null;
+		List<Company> companies = new ArrayList<Company>(this.companies.values());
+		Collections.sort(companies);
+		
+		return companies;
 	}
 
 	@Override

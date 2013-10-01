@@ -12,10 +12,11 @@ public interface CompanyManagement {
 	public void delCompany(String idCompany) throws Exception;
 
 	/* ADD/DELETE Employees */
-	public void addEmployee(String idCompany, String idEmployee, String name,
-			String type) throws Exception;
+	public void addEmployee(String idCompany, String idDirector,
+			String idEmployee, String type) throws Exception;
 
-	public void delEmployee(String idEmployee);
+	public void delEmployee(String idCompany, String idEmployee)
+			throws Exception;
 
 	/* Listings */
 	public List<Company> listCompaniesById();

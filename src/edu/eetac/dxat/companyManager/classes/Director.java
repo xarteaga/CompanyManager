@@ -29,7 +29,18 @@ public class Director extends Employee {
 		} else {
 			throw new Exception("Is not possible add this kind of employee: " + type);
 		}
-		
+	}
+	
+	public void delEmployee (String idEmployee) throws Exception{
+	
+		for (Employee e:employees){
+			if (e.getId()==idEmployee){
+				this.employees.remove(e);
+				return;
+			}
+		}
+		throw new Exception("Employee does not exist in the director: " + id);
+
 	}
 
 	@Override
